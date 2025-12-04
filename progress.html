@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Child Progression Dashboard · ChildHealth Monitor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo">
+        <span class="logo-icon">🩺</span>
+        <div>
+          <p class="logo-title">ChildHealth Monitor</p>
+          <p class="logo-subtitle">AI Nutrition Intelligence</p>
+        </div>
+      </div>
+      <nav class="primary-nav">
+        <a class="nav-link" href="index.html#hero">Dashboard</a>
+        <a class="nav-link" href="index.html#resources">Resources</a>
+        <a class="nav-link" href="index.html#solutions">Solution</a>
+        <a class="nav-link active" href="progress.html">Progress</a>
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="index.html#faq">FAQ</a>
+      </nav>
+      <div class="account-area">
+        <div class="account-dropdown" id="accountDropdown">
+          <button class="account-trigger" id="accountTrigger">
+            <span class="avatar">👩‍⚕️</span>
+            <span class="account-name" id="accountName">Guest</span>
+            <span class="chevron">▾</span>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <p class="dropdown-label">
+              Signed in as <span id="dropdownUser">Guest</span>
+            </p>
+            <button class="dropdown-item" data-action="logout">Log out</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="progress-main">
+      <section class="section-heading">
+        <h2>Child Growth Progression</h2>
+        <p>
+          Visualize longitudinal growth trends for a monitored child. This page is only available once you are signed
+          in to the ChildHealth Monitor dashboard.
+        </p>
+      </section>
+
+      <section class="progress-layout">
+        <div class="progress-summary">
+          <h3>Profile Snapshot</h3>
+          <p id="progressName">Child: <strong>Example Case</strong></p>
+          <p>Age range: 6 – 24 months</p>
+          <p>Monitoring frequency: Monthly</p>
+          <p class="status-pill normal">Status: Stable nutritional recovery</p>
+          <p class="progress-note">
+            Use this chart to discuss improvements with caregivers and identify any early signs of deterioration.
+          </p>
+        </div>
+
+        <div class="progress-chart-card">
+          <canvas id="growthChart" width="600" height="340" aria-label="Child growth progression chart"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="currentYear"></span> ChildHealth Monitor · AI for Good</p>
+      <div class="footer-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#assessment">Assessment</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Simple auth gate: require chmUser in localStorage
+      const savedUser = localStorage.getItem('chmUser');
+      if (!savedUser) {
+        alert('Please log in first to access the child progression dashboard.');
+        window.location.href = 'index.html?login=1';
+      }
+
+      // Fill account info if logged in
+      const accountName = document.getElementById('accountName');
+      const dropdownUser = document.getElementById('dropdownUser');
+      if (savedUser && accountName && dropdownUser) {
+        accountName.textContent = savedUser;
+        dropdownUser.textContent = savedUser;
+      }
+
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      const accountTrigger = document.getElementById('accountTrigger');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+
+      accountTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('open');
+      });
+
+      document.addEventListener('click', () => dropdownMenu.classList.remove('open'));
+
+      dropdownMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (e.target.dataset.action === 'logout') {
+          localStorage.removeItem('chmUser');
+          window.location.href = 'index.html';
+        }
+      });
+
+      const ctx = document.getElementById('growthChart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['6m', '9m', '12m', '15m', '18m', '21m', '24m'],
+          datasets: [
+            {
+              label: 'Weight (kg)',
+              data: [5.2, 6.0, 7.1, 7.8, 8.5, 9.1, 9.6],
+              borderColor: '#0f5beb',
+              backgroundColor: 'rgba(15, 91, 235, 0.08)',
+              tension: 0.3,
+              fill: true
+            },
+            {
+              label: 'Height (cm)',
+              data: [62, 66, 70, 74, 78, 81, 84],
+              borderColor: '#20c997',
+              backgroundColor: 'rgba(32, 201, 151, 0.08)',
+              yAxisID: 'y1',
+              tension: 0.3,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              labels: { font: { family: 'Inter' } }
+            },
+            tooltip: {
+              callbacks: {
+                label: function (context) {
+                  return context.dataset.label + ': ' + context.parsed.y;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              title: { display: true, text: 'Weight (kg)' },
+              grid: { color: 'rgba(15, 27, 43, 0.06)' }
+            },
+            y1: {
+              position: 'right',
+              title: { display: true, text: 'Height (cm)' },
+              grid: { drawOnChartArea: false }
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,118 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hai",
+        "Haii",
+        "Hey",
+        "Apa Kabar",
+        "Ada orang?",
+        "Hallo",
+        "Halo",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :> ",
+        "Hello, terima kasih sudah datang",
+        "Hi, Ada yang bisa saya bantu?",
+        "Hi disana, butuh bantuan apa?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye", "Dadah", "oke thx", "sip", "okay"],
+      "responses": [
+        "Daahh 👋",
+        "Dah! Semoga Harimu Menyenangkan",
+        "Bye! Silahkan Kembali Setiap Saat."
+      ] 
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Senang membantu! 😊", "Sama-sama!", "Apapun untukmu ❤!"]
+    },
+    {
+      "tag": "rekomendasi_makanan",
+      "patterns": [
+        "Apa rekomendasi makanan untuk anak kurang gizi?",
+        "Makanan apa yang baik untuk pemulihan?",
+        "Sebutkan sumber protein untuk anak",
+        "Perlu makan apa agar cepat sehat?"
+      ],
+      "responses": [
+      "Prioritaskan makanan padat gizi tinggi energi dan protein, seperti telur, daging, ikan, kacang-kacangan, dan susu yang difortifikasi. Berikan porsi kecil tapi sering.",
+      "Untuk pemulihan, sangat penting untuk memberikan protein, lemak sehat, dan mikronutrien (vitamin A, C, zat besi, zinc). Konsultasikan dengan ahli gizi untuk rencana diet yang terperinci.",
+      "Contoh sumber protein yang baik adalah ayam, tahu, tempe, dan susu."
+      ]
+    },
+    {
+      "tag": "gejala_klinis",
+      "patterns": [
+        "Apa saja gejala malnutrisi?",
+        "Bagaimana cara mengenali anak kurang gizi?",
+        "Ciri-ciri gizi buruk",
+        "Gejala klinis yang harus diperhatikan"
+      ],
+      "responses": [
+      "Gejala umum meliputi berat badan kurang atau stunting (pendek), kulit kering dan pucat, rambut tipis dan mudah rontok, otot mengecil (wasting), serta sering sakit karena imunitas rendah.",
+      "Perhatikan perubahan perilaku seperti anak menjadi lebih rewel, lesu, atau kehilangan nafsu makan. Pembengkakan pada kaki (edema) juga merupakan tanda gizi buruk (Kwashiorkor)."
+      ]
+    },
+    {
+      "tag": "info_malnutrisi_umum",
+      "patterns": [
+        "Apa itu malnutrisi?",
+        "Jelaskan tentang kurang gizi",
+        "Definisi malnutrisi anak",
+        "Kenapa anak bisa malnutrisi?",
+        "Faktor penyebab kurang gizi"
+      ],
+      "responses": [
+      "Malnutrisi (kurang gizi) adalah kondisi serius yang terjadi ketika asupan nutrisi seseorang tidak mencukupi atau berlebihan, yang menyebabkan masalah kesehatan. Pada anak, ini sering merujuk pada kekurangan gizi, seperti gizi buruk (marasmus/kwashiorkor).",
+      "Kurang gizi pada anak disebabkan oleh beberapa faktor, seperti asupan makanan yang tidak memadai, penyakit infeksi berulang, atau kurangnya perawatan dan sanitasi yang baik."
+      ]
+    },
+    {
+      "tag": "pencegahan",
+      "patterns": [
+        "Bagaimana cara mencegah malnutrisi?",
+        "Tips mencegah kurang gizi",
+        "Cara terbaik untuk gizi anak",
+        "Pencegahan stunting dan wasting"
+      ],
+      "responses": [
+        "Pencegahan dimulai sejak 1000 hari pertama kehidupan (dari masa kehamilan hingga anak usia 2 tahun). Pastikan nutrisi ibu hamil terpenuhi, berikan ASI eksklusif 6 bulan pertama, dan berikan MPASI yang tepat gizi setelah usia 6 bulan.",
+        "Terapkan pola hidup bersih dan sehat (PHBS), termasuk cuci tangan dan sanitasi yang baik, untuk mencegah infeksi yang dapat menghambat penyerapan nutrisi."
+    ]
+    },
+    {
+      "tag": "tanda_bahaya_rujukan",
+      "patterns": [
+        "Kapan harus ke dokter?",
+        "Tanda bahaya gizi buruk",
+        "Kapan harus dirujuk?",
+        "Anak harus dibawa ke puskesmas jika?"
+      ],
+      "responses": [
+        "Pencegahan dimulai sejak 1000 hari pertama kehidupan (dari masa kehamilan hingga anak usia 2 tahun). Pastikan nutrisi ibu hamil terpenuhi, berikan ASI eksklusif 6 bulan pertama, dan berikan MPASI yang tepat gizi setelah usia 6 bulan.",
+        "Terapkan pola hidup bersih dan sehat (PHBS), termasuk cuci tangan dan sanitasi yang baik, untuk mencegah infeksi yang dapat menghambat penyerapan nutrisi."
+      ]
+    },
+       {
+      "tag": "perbedaan_stunting_wasting",
+      "patterns": [
+        "Apa bedanya stunting dan wasting?",
+        "Perbedaan gizi kronis dan akut",
+        "Stunting itu apa?",
+        "Wasting itu apa?"
+      ],
+      "responses": [
+        "Stunting adalah masalah gizi kronis (jangka panjang) yang diukur dari Tinggi Badan menurut Usia (TB/U). Anak stunting terlihat pendek. Wasting adalah masalah gizi akut (jangka pendek) yang diukur dari Berat Badan menurut Tinggi Badan (BB/TB). Anak wasting terlihat kurus atau sangat kurus.",
+        "Wasting seringkali lebih berbahaya dalam jangka pendek karena menunjukkan kekurangan nutrisi yang parah dan baru terjadi, sementara Stunting menunjukkan adanya kekurangan gizi yang terjadi berulang-ulang atau dalam waktu lama."
+      ]
+    }
+  ]
+}

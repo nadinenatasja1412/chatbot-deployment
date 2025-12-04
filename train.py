@@ -9,14 +9,14 @@ from torch.utils.data import Dataset, DataLoader
 from nltk_utils import bag_of_words, tokenize, stem
 from model import NeuralNet
 
-with open('intents.json', 'r') as f:
-    intents = json.load(f)
+with open('malnutrisions.json', 'r', encoding='utf-8') as f:
+    malnutrisions = json.load(f)
 
 all_words = []
 tags = []
 xy = []
 # loop through each sentence in our intents patterns
-for intent in intents['intents']:
+for intent in malnutrisions['intents']:
     tag = intent['tag']
     # add to tag list
     tags.append(tag)

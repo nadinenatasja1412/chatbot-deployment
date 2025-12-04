@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChildHealth Monitor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo">
+        <span class="logo-icon">🩺</span>
+        <div>
+          <p class="logo-title">ChildHealth Monitor</p>
+          <p class="logo-subtitle">AI Nutrition Intelligence</p>
+        </div>
+      </div>
+      <nav class="primary-nav">
+        <a class="nav-link active" href="#hero">Dashboard</a>
+        <a class="nav-link" href="#resources">Resources</a>
+        <a class="nav-link" href="#solutions">Solution</a>
+        <a class="nav-link" href="progress.html" data-protected="true">Progress</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+      </nav>
+      <div class="account-area">
+        <div class="account-dropdown" id="accountDropdown">
+          <button class="account-trigger" id="accountTrigger">
+            <span class="avatar">👩‍⚕️</span>
+            <span class="account-name" id="accountName">Guest</span>
+            <span class="chevron">▾</span>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <p class="dropdown-label">Signed in as <span id="dropdownUser">Guest</span></p>
+            <button class="dropdown-item" data-action="profile">Profile</button>
+            <button class="dropdown-item" data-action="settings">Settings</button>
+            <button class="dropdown-item" data-action="logout">Log out</button>
+          </div>
+        </div>
+        <button class="accent-btn" id="loginBtn">Log in</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-text">
+          <p class="eyebrow">AI Dashboard</p>
+          <h1>AI-Powered Child Malnutrition Monitoring</h1>
+          <p class="lead">
+            Advanced AI technology to monitor, analyze, and combat child malnutrition with real-time insights and
+            evidence-based solutions for frontline health teams.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-btn" id="startAssessment">Start AI Assessment</button>
+            <button class="secondary-btn">View Global Data</button>
+          </div>
+          <ul class="hero-stats">
+            <li>
+              <p class="stat-value">120+</p>
+              <p class="stat-label">Countries Connected</p>
+            </li>
+            <li>
+              <p class="stat-value">2.3M</p>
+              <p class="stat-label">Children Monitored</p>
+            </li>
+            <li>
+              <p class="stat-value">99.2%</p>
+              <p class="stat-label">Detection Accuracy</p>
+            </li>
+          </ul>
+        </div>
+        <div class="hero-card">
+          <h3>Rapid Assessment Overview</h3>
+          <div class="hero-metric">
+            <p>At-Risk Alerts</p>
+            <strong>348</strong>
+            <span>Last 7 days</span>
+          </div>
+          <div class="hero-metric">
+            <p>Field Teams Online</p>
+            <strong>87</strong>
+            <span>Across 14 countries</span>
+          </div>
+          <div class="hero-metric">
+            <p>AI Recommendations</p>
+            <strong>1,209</strong>
+            <span>Validated interventions</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="assessment" id="assessment">
+        <div class="section-heading">
+          <h2>AI Powered Nutritional Assessment</h2>
+          <p>
+            Advanced artificial intelligence analyzes multiple health indicators to provide personalized nutritional
+            assessments and evidence-based recommendations.
+          </p>
+        </div>
+        <div class="assessment-grid">
+          <form class="assessment-form" id="assessmentForm">
+            <div class="form-group">
+              <label for="ageInput">Age (months)</label>
+              <input type="number" id="ageInput" min="0" max="60" required />
+            </div>
+            <div class="form-group">
+              <label for="genderSelect">Gender</label>
+              <select id="genderSelect" required>
+                <option value="">Select gender</option>
+                <option value="Laki-laki">Male</option>
+                <option value="Perempuan">Female</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="weightInput">Weight (kg)</label>
+              <input type="number" id="weightInput" min="1" step="0.1" required />
+            </div>
+            <div class="form-group">
+              <label for="heightInput">Height (cm)</label>
+              <input type="number" id="heightInput" min="30" step="0.1" required />
+            </div>
+            <div class="form-group full-width">
+              <label>Observed Symptoms</label>
+              <div class="symptom-options">
+                <label><input type="checkbox" value="kulit_rambut" /> Hair & skin changes</label>
+                <label><input type="checkbox" value="otot_perut" /> Abdominal swelling</label>
+                <label><input type="checkbox" value="imunitas" /> Frequent infections</label>
+              </div>
+            </div>
+            <button class="primary-btn full-width" type="submit">Analyze with AI</button>
+            <p class="form-hint">Powered by `app.py` RandomForest model via `api_server.py`.</p>
+          </form>
+          <div class="assessment-results" id="assessmentResults">
+            <div class="result-state">
+              <span class="result-icon">ℹ️</span>
+              <p>Enter child's information to receive AI-powered nutritional assessment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats" id="resources">
+        <div class="section-heading">
+          <h2>Global Malnutrition Statistics</h2>
+          <p>
+            Real-time insights powered by AI analysis of global health data, providing comprehensive monitoring of child
+            malnutrition worldwide.
+          </p>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <p>Children affected</p>
+            <h3>142.9 M</h3>
+            <p>Under 5 years globally</p>
+            <span class="trend up">+2.1%</span>
+          </article>
+          <article class="stat-card">
+            <p>Severe wasting</p>
+            <h3>47.1 M</h3>
+            <p>Need urgent care</p>
+            <span class="trend flat">0%</span>
+          </article>
+          <article class="stat-card">
+            <p>Stunting cases</p>
+            <h3>148.1 M</h3>
+            <p>Across 86 countries</p>
+            <span class="trend down">-1.2%</span>
+          </article>
+          <article class="stat-card">
+            <p>Data points analyzed</p>
+            <h3>3.8 B</h3>
+            <p>Monthly telemetry</p>
+            <span class="trend up">+8.5%</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="solutions" id="solutions">
+        <div class="section-heading">
+          <h2>Evidence-Based Solutions</h2>
+          <p>
+            Proven interventions and innovative approaches to combat child malnutrition, backed by research and
+            implementation data.
+          </p>
+        </div>
+        <div class="solution-grid">
+          <article class="solution-card">
+            <header>
+              <p class="badge success">Proven</p>
+              <h3>Community-Based Management</h3>
+            </header>
+            <p>Implement local healthcare programs to identify and treat malnutrition in the community level.</p>
+            <ul>
+              <li>Community health</li>
+              <li>87% recovery rate</li>
+            </ul>
+            <a class="text-btn" href="article.html">Learn more →</a>
+          </article>
+          <article class="solution-card">
+            <header>
+              <p class="badge scale">Scaling</p>
+              <h3>Therapeutic Food Programs</h3>
+            </header>
+            <p>Ready-to-use therapeutic foods (RUTF) for treating severe acute malnutrition in children.</p>
+            <ul>
+              <li>Nutrition</li>
+              <li>2.3M children treated</li>
+            </ul>
+            <a class="text-btn" href="article.html">Learn more →</a>
+          </article>
+          <article class="solution-card">
+            <header>
+              <p class="badge warning">Expanding</p>
+              <h3>Healthcare Worker Training</h3>
+            </header>
+            <p>AI-enhanced training programs for healthcare workers to improve malnutrition detection.</p>
+            <ul>
+              <li>Education</li>
+              <li>15,000 trained</li>
+            </ul>
+            <a class="text-btn" href="article.html">Learn more →</a>
+          </article>
+          <article class="solution-card">
+            <header>
+              <p class="badge pilot">Pilot</p>
+              <h3>Mobile Health Monitoring</h3>
+            </header>
+            <p>Mobile applications for tracking child growth and nutritional signals in remote areas.</p>
+            <ul>
+              <li>Technology</li>
+              <li>500+ clinics</li>
+            </ul>
+            <a class="text-btn" href="article.html">Learn more →</a>
+          </article>
+          <article class="solution-card">
+            <header>
+              <p class="badge success">Proven</p>
+              <h3>Nutrition Education Programs</h3>
+            </header>
+            <p>Evidence-based educational initiatives for caregivers and community health aides.</p>
+            <ul>
+              <li>Education</li>
+              <li>1.3M families reached</li>
+            </ul>
+            <a class="text-btn" href="article.html">Learn more →</a>
+          </article>
+          <article class="solution-card">
+            <header>
+              <p class="badge dev">Development</p>
+              <h3>Early Warning System</h3>
+            </header>
+            <p>AI-powered system to predict and prevent malnutrition crises in vulnerable regions.</p>
+            <ul>
+              <li>Prevention</li>
+              <li>12 countries</li>
+            </ul>
+            <a class="text-btn" href="article.html">Learn more →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="about-card">
+          <h2>About ChildHealth Monitor</h2>
+          <p>
+            ChildHealth Monitor is an AI-first platform dedicated to eradicating child malnutrition. We combine
+            anthropometric standards, community-collected data, and advanced machine learning models from `app.py` to
+            deliver reliable assessments through the lightweight Flask bridge `api_server.py`.
+          </p>
+          <p>
+            Field-ready dashboards empower ministries of health, NGOs, and community workers to act quickly with
+            confidence, while a secure account portal keeps family records safe.
+          </p>
+          <ul class="about-list">
+            <li>Predictive models trained on WHO standard Z-scores</li>
+            <li>Offline-ready mobile capture kits</li>
+            <li>Actionable insights ranked by urgency</li>
+            <li>Privacy-first architecture</li>
+          </ul>
+        </div>
+        <div class="about-card gradient">
+          <h3>Why Teams Choose Us</h3>
+          <div class="about-metric">
+            <strong>4.9/5</strong>
+            <span>Implementation satisfaction</span>
+          </div>
+          <div class="about-metric">
+            <strong>8 hrs</strong>
+            <span>Average time to value</span>
+          </div>
+          <div class="about-metric">
+            <strong>24/7</strong>
+            <span>AI assistant coverage</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq" id="faq">
+        <div class="section-heading">
+          <h2>Frequently Asked Questions</h2>
+          <p>Answers to the most common questions about deployments, privacy, and AI precision.</p>
+        </div>
+        <div class="faq-list" id="faqList">
+          <article class="faq-item">
+            <button class="faq-question">
+              How accurate is the AI assessment?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              The model in `app.py` uses WHO combined z-score logic and clinical symptoms for high precision, validated
+              across 20,000 simulated samples and real-world pilots.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question">
+              What data is required for an assessment?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Age, gender, weight, height, and three optional symptom indicators. The UI automatically encodes them to
+              match the Flask API contract.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question">
+              Can we integrate with national health systems?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Yes, `api_server.py` exposes REST endpoints ready for integration with national eHealth systems and
+              third-party dashboards.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question">
+              How do accounts and roles work?
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              Teams can invite clinicians, supervisors, and data stewards. Role-based access control determines which
+              dashboards, records, and AI tools are visible.
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Chatbot widget -->
+    <button class="chat-toggle" id="chatToggle" aria-label="Open AI Assistant chat">
+      <img src="standalone-frontend/images/chatbox-icon.svg" alt="" class="chat-toggle-icon" />
+    </button>
+    <div class="chat-widget" id="chatWidget">
+      <div class="chat-header">
+        <h3>Nutrition AI Assistant</h3>
+        <button class="chat-close" id="chatClose">×</button>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">
+          <p>Hi, saya asisten gizi. Tanyakan apa saja tentang malnutrisi, gejala, dan pencegahan.</p>
+        </div>
+      </div>
+      <form class="chat-input-row" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Ketik pertanyaan Anda..." autocomplete="off" />
+        <button type="submit">Kirim</button>
+      </form>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="currentYear"></span> ChildHealth Monitor · AI for Good</p>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#assessment">Assessment</a>
+      </div>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <div class="modal" id="authModal" aria-hidden="true">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-tab="login">Log in</button>
+        <button class="modal-tab" data-tab="signup">Sign up</button>
+      </div>
+      <div class="modal-body">
+        <form class="auth-form" id="loginForm" data-form="login">
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button class="primary-btn" type="submit">Access Dashboard</button>
+        </form>
+        <form class="auth-form hidden" id="signupForm" data-form="signup">
+          <label>
+            Full name
+            <input type="text" name="fullName" required />
+          </label>
+          <label>
+            Organization
+            <input type="text" name="org" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button class="primary-btn" type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+
